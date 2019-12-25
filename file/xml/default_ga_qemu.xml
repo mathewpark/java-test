@@ -34,8 +34,13 @@
 		</disk>
 		<interface type="bridge">
 			<source bridge="virbr0" />
+			<pjw>myball</pjw>
 			<model type='virtio' />
 		</interface>
+		<pjw>
+			<param1 name="sean" value="developer1">1</param1>
+			<param2 name="django" value="developer2">2</param2>
+		</pjw>
 		<console type="pty">
 			<target port="0" />
 		</console>
