@@ -15,6 +15,9 @@ public class ArraySortTestMain {
 		// 순서 뒤집어진 "문자열 배열"을 "문자열"로 변환 후 출력
 		System.out.println(Arrays.toString(a));
 		// 출력 결과: [똠방각하, DDD, CCC, bbb, aaa, AAA]
+		
+		Arrays.asList(new String[] { "asdf" });
+		System.out.println(Arrays.asList(new String[] { "\"asdf\"" }));
 	}
 	
 	public static void reverseArrayString(String[] array) {

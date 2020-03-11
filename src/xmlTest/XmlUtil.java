@@ -1,8 +1,8 @@
 package xmlTest;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
-import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -18,9 +18,11 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.bootstrap.DOMImplementationRegistry;
+import org.w3c.dom.ls.DOMImplementationLS;
+import org.w3c.dom.ls.LSSerializer;
 import org.xml.sax.SAXException;
 
-import org.w3c.dom.ls.*;
+import com.gcloud.compute.util.XmlUtil;
 
 /**
  * Document Utils -> Xml Utils -> XmlLoader
@@ -33,7 +35,7 @@ public class XmlUtil {
 	}
 	
 	public static Document load(String desc) throws SAXException, IOException, ParserConfigurationException {
-		return DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(desc);
+		return DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(new ByteArrayInputStream(desc.getBytes()));
 	}
 	
 	public static String docToStringUsingLSSerializer(Document document) throws ClassNotFoundException, InstantiationException, IllegalAccessException, ClassCastException {
@@ -43,10 +45,12 @@ public class XmlUtil {
 	    return serializer.writeToString(document);
 	}
 	
-	public static Element createElement(Document document, String tagName, String tagValue) {
+	public static Element createElement(Document document, Element parent, String tagName, String tagValue) {
 		Element tag = document.createElement(tagName);
-
-		tag.appendChild(document.createTextNode(tagValue));
+		
+		tag.setNodeValue(tagValue);
+		
+		parent.appendChild(tag);
 		
 		return tag;
 	}
