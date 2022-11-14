@@ -1,0 +1,55 @@
+plugins {
+    id 'java'
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        name = 'restlet-maven'
+        url = "https://maven.restlet.talend.com"
+    }
+}
+
+dependencies {
+    // log related
+    implementation 'org.apache.logging.log4j:log4j-api:2.17.1'
+    implementation 'org.apache.logging.log4j:log4j-core:2.17.1'
+    implementation 'org.apache.logging.log4j:log4j-slf4j-impl:2.17.1'
+    implementation 'org.apache.logging.log4j:log4j-jcl:2.17.1'
+    implementation 'org.apache.logging.log4j:log4j-1.2-api:2.17.1'
+    
+    // restlet
+    implementation 'org.restlet.jee:org.restlet:2.0.9'
+    implementation 'org.restlet.jee:org.restlet.ext.json:2.0.9'
+    implementation 'org.restlet.jee:org.restlet.ext.xml:2.0.9'
+
+    implementation 'org.bouncycastle:bcpkix-jdk15on:1.64'
+    implementation 'org.bouncycastle:bcprov-jdk15on:1.64'
+    
+    // Use JUnit test framework
+    testImplementation(platform('org.junit:junit-bom:5.8.2'))
+    testImplementation('org.junit.jupiter:junit-jupiter')
+
+    // Use mockito
+    testImplementation 'org.mockito:mockito-core:4.1.0'
+    testImplementation 'org.mockito:mockito-inline:4.1.0'
+    testImplementation 'org.mockito:mockito-junit-jupiter:4.1.0'
+
+    testImplementation 'org.jsoup:jsoup:1.7.2'
+    testImplementation 'io.rest-assured:rest-assured:4.3.0'
+    testImplementation 'io.rest-assured:json-schema-validator:3.0.0'
+    testImplementation 'org.skyscreamer:jsonassert:1.5.0'
+    testImplementation 'org.assertj:assertj-core:3.19.0'
+}
+
+test {
+    useJUnitPlatform()
+    
+    testLogging {
+        showStandardStreams = true
+        showCauses = true
+        showExceptions = true
+        showStackTraces = true
+        exceptionFormat = 'full'
+    }
+}

@@ -22,8 +22,6 @@ import org.w3c.dom.ls.DOMImplementationLS;
 import org.w3c.dom.ls.LSSerializer;
 import org.xml.sax.SAXException;
 
-import com.gcloud.compute.util.XmlUtil;
-
 /**
  * Document Utils -> Xml Utils -> XmlLoader
  */
