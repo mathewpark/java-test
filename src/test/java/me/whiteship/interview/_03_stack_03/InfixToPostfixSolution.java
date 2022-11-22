@@ -13,6 +13,8 @@ public class InfixToPostfixSolution {
         System.out.println(postfix.equals("12+3*"));
         System.out.println(infixToPostfix.convert("1+2*3").equals("123*+"));
         System.out.println(infixToPostfix.convert("(5-(2+1))*9"));
+        System.out.println(infixToPostfix.convert("1+(2+3*4+5)+6+7+8"));
+        System.out.println(infixToPostfix.convert("1+(2+3+4+5)+6+7+8"));
     }
 
     private int precedence(char c) {

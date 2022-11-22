@@ -34,6 +34,16 @@ public class ReverseStack {
         }
     }
 
+    // private void solution3(Stack<Integer> stack) {
+    //     Stack<Integer> reversed = new Stack<>();
+
+    //     while (!stack.empty()) {
+    //         reversed.push(stack.pop());
+    //     }
+
+    //     numbers = reversed;
+    // }
+
     /**
      * FIXME
      * @param stack
